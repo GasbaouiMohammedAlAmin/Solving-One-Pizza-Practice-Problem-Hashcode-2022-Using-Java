@@ -4,7 +4,7 @@
 creating a java programing oriented object for practice round hashcode 2022 problem with the simulated score board
 
 # which approach did i used ?
-i used the first agorithm to solve the input (a_an_example.in | b_basic.in)
+i used the first agorithm to solve the inputs (a_an_example.in | b_basic.in)
 
 the algorithm is :
 
