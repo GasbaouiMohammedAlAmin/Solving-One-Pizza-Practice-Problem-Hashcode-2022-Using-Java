@@ -23,7 +23,7 @@ the algorithm is :
 3- Taking all the ingredient liked list customers while there is no any disliked ingredient inside the taken list
 
 # The details explanation video in the link below
-
+https://www.youtube.com/watch?v=V8IDV97-wuo
 
 
 
