@@ -10,12 +10,12 @@ import java.util.Comparator;
 public class CustomerComparator implements Comparator<Customer>{
     
     @Override
-    public int compare(Customer o1, Customer o2) {
-        if(o1.getDislikedIngredients().size()==o2.getDislikedIngredients().size()){
-            return o1.getLikedIngredients().size()-o2.getLikedIngredients().size();
+    public int compare(Customer customer1, Customer customer2) {
+
+        if(customer1.getDislikedIngredients().size() == customer2.getDislikedIngredients().size()){
+            return customer1.getLikedIngredients().size()-customer2.getLikedIngredients().size();
         }
-       return o1.getDislikedIngredients().size()
-               -o2.getDislikedIngredients().size();
+        
+       return customer1.getDislikedIngredients().size() - customer2.getDislikedIngredients().size();
     }
-    
 }

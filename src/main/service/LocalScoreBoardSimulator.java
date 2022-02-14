@@ -9,36 +9,46 @@ import java.util.List;
  * @author amine gasa
  */
 public class LocalScoreBoardSimulator {
+
     List<Customer> customers;
-    Map<String,Integer> ingredient;
+    Map<String, Integer> ingredient;
 
     public LocalScoreBoardSimulator(List<Customer> customers, Map ingredient) {
         this.customers = customers;
         this.ingredient = ingredient;
     }
-    public int getScore(){
-        int customerCount=0;
-        boolean likedStatus;
-        boolean dislikedStatus;
-        
-        for (Customer customer :customers) {
-        likedStatus=true;
-        dislikedStatus=true;
-            for(String likedIngredient :customer.getLikedIngredients()){
-                if(!ingredient.containsKey(likedIngredient)){
-                    likedStatus=false;
+
+    public int getScore() {
+        int customerCount = 0;
+
+        for (Customer customer : customers) {
+
+            Boolean is_selected = true;
+
+            //checking if any ingredient of customer that is not in our selection 
+            for (String likedIngredient : customer.getLikedIngredients()) {
+                if (!ingredient.containsKey(likedIngredient)) {
+                    likedStatus = false;
                     break;
                 }
             }
-            for(String dislikedIngredient :customer.getDislikedIngredients()){
-                if(ingredient.containsKey(dislikedIngredient)){
-                    dislikedStatus=false;
+            
+            if(!is_selected) continue;
+
+            //checking if any ingredient of customer that is disliked by customer
+            for (String dislikedIngredient : customer.getDislikedIngredients()) {
+                if (ingredient.containsKey(dislikedIngredient)) {
+                    is_selected = false;
                     break;
                 }
             }
-            if(likedStatus && dislikedStatus)
-            customerCount++;
+
+            //increase count of customers if that ingredient is 
+            //liked by customer and not disliked by that customer
+            if (is_selected)
+                customerCount++;
         }
-        
-    return customerCount;}
+
+        return customerCount;
+    }
 }
